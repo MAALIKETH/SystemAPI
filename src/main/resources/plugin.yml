@@ -1,0 +1,4 @@
+name: SystemAPI
+version: '1.0'
+main: me.maaliketh.systemAPI.SystemAPI
+api-version: '1.21'
