@@ -7,7 +7,9 @@ public final class SystemAPI extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
-
+        getLogger().info(".");
+        getLogger().info("SystemAPI is now Active!");
+        getLogger().info(".");
     }
 
     @Override
