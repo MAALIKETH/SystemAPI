@@ -1,10 +1,13 @@
 package me.maaliketh.systemAPI.services;
 
-import org.bukkit.Bukkit;
-
 public class CreditAPI {
+    private static CreditService instance;
 
-    public static CreditService get(){
-        return Bukkit.getServicesManager().load(CreditService.class);
+    public static void set(CreditService service) {
+        instance = service;
+    }
+
+    public static CreditService get() {
+        return instance;
     }
 }
