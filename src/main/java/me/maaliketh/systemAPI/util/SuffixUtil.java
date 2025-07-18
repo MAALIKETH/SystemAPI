@@ -6,9 +6,9 @@ import net.luckperms.api.model.user.User;
 import net.luckperms.api.query.QueryOptions;
 import org.bukkit.entity.Player;
 
-public class PrefixUtil {
+public class SuffixUtil {
 
-    public static String getPrefix(Player player) {
+    public static String getSuffix(Player player) {
         LuckPerms luckPerms = LuckPermsProvider.get();
 
         User user = luckPerms.getUserManager().getUser(player.getUniqueId());
@@ -17,7 +17,7 @@ public class PrefixUtil {
         QueryOptions queryOptions = luckPerms.getContextManager().getQueryOptions(user).orElse(null);
         if (queryOptions == null) return "";
 
-        String prefix = user.getCachedData().getMetaData(queryOptions).getPrefix();
-        return (prefix != null) ? ColorUtil.hexToLegacy(prefix) : "";
+        String suffix = user.getCachedData().getMetaData(queryOptions).getSuffix();
+        return (suffix != null) ? ColorUtil.hexToLegacy(suffix) : "";
     }
 }
