@@ -20,14 +20,6 @@ public class SuffixUtil {
         if (queryOptions == null) return "";
 
         String suffix = user.getCachedData().getMetaData(queryOptions).getSuffix();
-        if (suffix == null) return "";
-
-        suffix = ColorUtil.hexToLegacy(suffix);
-
-        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            suffix = PlaceholderAPI.setPlaceholders(player, suffix);
-        }
-
-        return suffix;
+        return (suffix != null) ? ColorUtil.hexToLegacy(suffix) : "";
     }
 }

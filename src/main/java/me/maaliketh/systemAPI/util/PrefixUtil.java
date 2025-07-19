@@ -20,14 +20,6 @@ public class PrefixUtil {
         if (queryOptions == null) return "";
 
         String prefix = user.getCachedData().getMetaData(queryOptions).getPrefix();
-        if (prefix != null) return "";
-
-        prefix = ColorUtil.hexToLegacy(prefix);
-
-        if(Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
-            prefix = PlaceholderAPI.setPlaceholders(player, prefix);
-        }
-
-        return prefix;
+        return (prefix != null) ? ColorUtil.hexToLegacy(prefix) : "";
     }
 }
