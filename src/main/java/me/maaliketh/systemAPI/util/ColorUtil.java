@@ -26,7 +26,7 @@ public class ColorUtil {
 
         String colored = org.bukkit.ChatColor.translateAlternateColorCodes('&', sb.toString());
 
-        return colored + "§r";
+        return colored;
     }
 
     public static String translateRGBtoLegacy(String text) {
