@@ -23,10 +23,7 @@ public class ColorUtil {
         }
         matcher.appendTail(sb);
 
-
-        String colored = org.bukkit.ChatColor.translateAlternateColorCodes('&', sb.toString());
-
-        return colored;
+        return sb.toString();
     }
 
     public static String translateRGBtoLegacy(String text) {

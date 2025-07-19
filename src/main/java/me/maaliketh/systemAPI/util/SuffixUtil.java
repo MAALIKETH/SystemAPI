@@ -21,6 +21,12 @@ public class SuffixUtil {
         if (queryOptions == null) return "";
 
         String suffix = user.getCachedData().getMetaData(queryOptions).getSuffix();
-        return (suffix != null) ? ChatColor.translateAlternateColorCodes('&', ColorUtil.hexToLegacy(suffix)) : "";
+        if (suffix == null) return "";
+
+        String suffixWithHex = ColorUtil.hexToLegacy(suffix);
+
+        String coloredSuffix = ChatColor.translateAlternateColorCodes('&', suffixWithHex);
+
+        return coloredSuffix;
     }
 }
