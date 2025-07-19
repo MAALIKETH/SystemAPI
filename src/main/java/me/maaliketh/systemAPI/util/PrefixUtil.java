@@ -1,11 +1,10 @@
 package me.maaliketh.systemAPI.util;
 
-import me.clip.placeholderapi.PlaceholderAPI;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.query.QueryOptions;
-import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class PrefixUtil {
@@ -20,6 +19,6 @@ public class PrefixUtil {
         if (queryOptions == null) return "";
 
         String prefix = user.getCachedData().getMetaData(queryOptions).getPrefix();
-        return (prefix != null) ? ColorUtil.hexToLegacy(prefix) : "";
+        return (prefix != null) ? ChatColor.translateAlternateColorCodes('&', ColorUtil.hexToLegacy(prefix)) : "";
     }
 }

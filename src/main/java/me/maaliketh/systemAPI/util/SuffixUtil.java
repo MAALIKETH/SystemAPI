@@ -6,6 +6,7 @@ import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.query.QueryOptions;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class SuffixUtil {
@@ -20,6 +21,6 @@ public class SuffixUtil {
         if (queryOptions == null) return "";
 
         String suffix = user.getCachedData().getMetaData(queryOptions).getSuffix();
-        return (suffix != null) ? ColorUtil.hexToLegacy(suffix) : "";
+        return (suffix != null) ? ChatColor.translateAlternateColorCodes('&', ColorUtil.hexToLegacy(suffix)) : "";
     }
 }
