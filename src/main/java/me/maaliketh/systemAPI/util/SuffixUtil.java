@@ -1,9 +1,11 @@
 package me.maaliketh.systemAPI.util;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
 import net.luckperms.api.query.QueryOptions;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 public class SuffixUtil {
@@ -18,6 +20,14 @@ public class SuffixUtil {
         if (queryOptions == null) return "";
 
         String suffix = user.getCachedData().getMetaData(queryOptions).getSuffix();
-        return (suffix != null) ? ColorUtil.hexToLegacy(suffix) : "";
+        if (suffix == null) return "";
+
+        suffix = ColorUtil.hexToLegacy(suffix);
+
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            suffix = PlaceholderAPI.setPlaceholders(player, suffix);
+        }
+
+        return suffix;
     }
 }
