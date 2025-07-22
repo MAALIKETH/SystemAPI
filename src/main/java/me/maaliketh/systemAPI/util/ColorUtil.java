@@ -41,7 +41,6 @@ public class ColorUtil {
         }
 
         matcher.appendTail(buffer);
-        // optional: & -> § für andere Farbcodes (nicht RGB)
         return ChatColor.translateAlternateColorCodes('&', buffer.toString());
     }
 

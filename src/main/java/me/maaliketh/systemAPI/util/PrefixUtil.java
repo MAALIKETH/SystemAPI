@@ -19,12 +19,6 @@ public class PrefixUtil {
         if (queryOptions == null) return "";
 
         String prefix = user.getCachedData().getMetaData(queryOptions).getPrefix();
-        if (prefix == null) return "";
-
-        String prefixWithHex = ColorUtil.hexToLegacy(prefix);
-
-        String coloredPrefix = ChatColor.translateAlternateColorCodes('&', prefixWithHex);
-
-        return coloredPrefix;
+        return (prefix != null) ? ChatColor.translateAlternateColorCodes('&', prefix) : "";
     }
 }

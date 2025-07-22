@@ -20,13 +20,7 @@ public class SuffixUtil {
         QueryOptions queryOptions = luckPerms.getContextManager().getQueryOptions(user).orElse(null);
         if (queryOptions == null) return "";
 
-        String suffix = user.getCachedData().getMetaData(queryOptions).getSuffix();
-        if (suffix == null) return "";
-
-        String suffixWithHex = ColorUtil.hexToLegacy(suffix);
-
-        String coloredSuffix = ChatColor.translateAlternateColorCodes('&', suffixWithHex);
-
-        return coloredSuffix;
+        String suffix = user.getCachedData().getMetaData(queryOptions).getPrefix();
+        return (suffix != null) ? ChatColor.translateAlternateColorCodes('&', suffix) : "";
     }
 }
